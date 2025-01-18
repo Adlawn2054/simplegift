@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Love</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button {
+            padding: 10px 25px;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 25px;
+            color: #ff6f61;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, background-color 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ffd1d1;
+        }
+
+        /* Message Box Styling */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            color: #ff6f61;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .message-box p {
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .message-box button {
+            padding: 8px 20px;
+            background: #ff6f61;
+            color: #ffffff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .message-box button:hover {
+            background: #ff9a9e;
+        }
+        a{
+            text-decoration:none;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>To My Dearest</h1>
+        <p>
+            You light up my world in ways I never imagined. <br>
+            Here's a little something, just for you 
+            <a href="#" onclick="playHeartAudio()">💖</a>
+        </p>
+
+        <div class="buttons">
+            <button onclick="showMessage('You’re my only Puumpkiin ❤️')">Message 1</button>
+            <button onclick="showMessage('You always makes my heart smile 💕')">Message 2</button>
+            <button onclick="showMessage('I’m so lucky to have you 🥰')">Message 3</button>
+            <button onclick="showMessage('You are my Nepenthe ☀️')">Message 4</button>
+            <button onclick="showMessage('Forever and always 💘')">Message 5</button>
+            <button onclick="showMessage('Click the heart for message💘')">Message 6</button>
+        </div>
+    </div>
+
+    <!-- Message Box -->
+    <div id="messageBox" class="message-box">
+        <p id="messageText"></p>
+        <button onclick="closeMessage()">Close</button>
+    </div>
+
+    <!-- Audio File -->
+    <audio id="heartAudio" src="ops.aac"></audio>
+
+    <script>
+        // Function to show the message box
+        function showMessage(message) {
+            const messageBox = document.getElementById('messageBox');
+            const messageText = document.getElementById('messageText');
+            messageText.textContent = message;
+            messageBox.style.display = 'block';
+        }
+
+        // Function to close the message box
+        function closeMessage() {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.style.display = 'none';
+        }
+
+        // Function to play audio when the heart is clicked
+        function playHeartAudio() {
+            const audio = document.getElementById('heartAudio');
+            audio.play();
+        }
+    </script>
+</body>
+</html>
